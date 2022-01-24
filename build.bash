@@ -2,7 +2,8 @@
 
 # CREDIT: TODO (After permission)
 
-cd ~/Desktop
+mkdir ws
+cd ws
 
 # ---------------------------
 ## 0. Requirements
