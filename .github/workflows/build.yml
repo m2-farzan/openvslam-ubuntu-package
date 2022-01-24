@@ -13,4 +13,4 @@ jobs:
       - name: Build
         run: |
           cd ${{ github.workspace }}
-          bash install.bash
+          bash build.bash
