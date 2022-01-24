@@ -1,6 +1,6 @@
-# CREDIT: TODO (After permission)
-
 #!/bin/bash
+
+# CREDIT: TODO (After permission)
 
 cd ~/Desktop
 
@@ -18,7 +18,7 @@ sudo apt-get install -y build-essential git pkg-config cmake make \
 # ---------------------------
 
 # Find the library
-ls /usr/local/lib/libopencv_core.so > /dev/null
+ls /opt/openvslam-community/lib/libopencv_core.so > /dev/null
 if [ $? -ne 0 ]  # 0 = found the library, 1 = error
 then
     # [0] Requirements
@@ -47,7 +47,7 @@ then
     pushd opencv-$VERSION/build
     cmake \
         -D CMAKE_BUILD_TYPE=Release \
-        -D CMAKE_INSTALL_PREFIX=/usr/local \
+        -D CMAKE_INSTALL_PREFIX=/opt/openvslam-community \
         -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-$VERSION/modules \
         -D ENABLE_CXX11=ON \
         -D BUILD_DOCS=OFF \
@@ -80,7 +80,7 @@ fi
 # ---------------------------
 
 # Find the library
-ls /usr/local/lib/libg2o_core.so > /dev/null
+ls /opt/openvslam-community/lib/libg2o_core.so > /dev/null
 if [ $? -ne 0 ]  # 0 = found the library, 1 = error
 then
     # [0] Requirements
@@ -98,7 +98,7 @@ then
     pushd g2o/build
     cmake \
         -D CMAKE_BUILD_TYPE=Release \
-        -D CMAKE_INSTALL_PREFIX=/usr/local \
+        -D CMAKE_INSTALL_PREFIX=/opt/openvslam-community \
         -D CMAKE_CXX_FLAGS=-std=c++11 \
         -D BUILD_SHARED_LIBS=ON \
         -D BUILD_UNITTESTS=OFF \
@@ -128,7 +128,7 @@ fi
 # ---------------------------
 
 # Find the library
-ls /usr/local/lib/libdbow2.so > /dev/null
+ls /opt/openvslam-community/lib/libdbow2.so > /dev/null
 if [ $? -ne 0 ]  # 0 = found the library, 1 = error
 then
     # [0] Requirements
@@ -145,7 +145,7 @@ then
     pushd DBoW2/build
     cmake \
         -D CMAKE_BUILD_TYPE=Release \
-        -D CMAKE_INSTALL_PREFIX=/usr/local \
+        -D CMAKE_INSTALL_PREFIX=/opt/openvslam-community \
         ..
 
     # [4] Compile the source using the Makefile [3]
@@ -167,7 +167,7 @@ fi
 # ---------------------------
 
 # Find the library
-ls /usr/local/lib/libpangolin.so > /dev/null
+ls /opt/openvslam-community/lib/libpangolin.so > /dev/null
 if [ $? -ne 0 ]  # 0 = found the library, 1 = error
 then
     # [0] Requirements
@@ -185,7 +185,7 @@ then
     pushd Pangolin/build
     cmake \
         -D CMAKE_BUILD_TYPE=Release \
-        -D CMAKE_INSTALL_PREFIX=/usr/local \
+        -D CMAKE_INSTALL_PREFIX=/opt/openvslam-community \
         ..
 
     # [4] Compile the source using the Makefile [3]
@@ -216,6 +216,7 @@ then
     mkdir -p openvslam/build
     cd openvslam/build
     cmake \
+        -D CMAKE_INSTALL_PREFIX=/opt/openvslam-community \
         -D BUILD_WITH_MARCH_NATIVE=ON \
         -D USE_PANGOLIN_VIEWER=ON \
         -D USE_SOCKET_PUBLISHER=OFF \
