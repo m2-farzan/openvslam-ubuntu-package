@@ -2,8 +2,8 @@
 
 # CREDIT: TODO (After permission)
 
-mkdir ws
-cd ws
+sudo mkdir -p /opt/openvslam-community
+sudo chown $(whoami):$(whoami) /opt/openvslam-community
 
 # ---------------------------
 ## 0. Requirements
@@ -13,6 +13,9 @@ sudo apt-get install -y build-essential git pkg-config cmake make \
     gcc curl wget unzip \
     libeigen3-dev gfortran libyaml-cpp-dev libgoogle-glog-dev
 
+
+mkdir ws
+cd ws
 
 # ---------------------------
 ## 1. Install OpenCV
@@ -67,7 +70,7 @@ then
     make -j8
 
     # [5] Install the libraries compiled in [4]
-    sudo make install
+    make install
 
     # [6] Clean the project
     popd  # the source directory [2]
@@ -115,7 +118,7 @@ then
     make -j8
 
     # [5] Install the libraries compiled in [4]
-    sudo make install
+    make install
 
     # [6] Clean the project
     popd  # the source directory [2]
@@ -154,7 +157,7 @@ then
     make -j8
 
     # [5] Install the libraries compiled in [4]
-    sudo make install
+    make install
 
     # [6] Clean the project
     popd  # the source directory [2]
@@ -194,7 +197,7 @@ then
     make -j8
 
     # [5] Install the libraries compiled in [4]
-    sudo make install
+    make install
 
     # [6] Clean the project
     popd  # the source directory [2]
@@ -218,7 +221,7 @@ then
     cd openvslam/build
     cmake \
         -D CMAKE_INSTALL_PREFIX=/opt/openvslam-community \
-        -D BUILD_WITH_MARCH_NATIVE=ON \
+        -D CMAKE_INCLUDE_PATH=/opt/openvslam-community/include \
         -D USE_PANGOLIN_VIEWER=ON \
         -D USE_SOCKET_PUBLISHER=OFF \
         -D USE_STACK_TRACE_LOGGER=ON \
@@ -229,6 +232,7 @@ then
     # [3] Compile the source using the Makefile [3]
     # -j: the number of your processors
     make -j8
+    make install
 fi
 
 ls
