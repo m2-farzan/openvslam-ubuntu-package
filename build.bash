@@ -211,7 +211,7 @@ cd openvslam/build
 if [ $? -ne 0 ]  # 0 = found the library, 1 = error
 then
     # [1] Get the source
-    git clone --branch main https://github.com/OpenVSLAM-Community/openvslam
+    git clone --branch 0.2.4 https://github.com/OpenVSLAM-Community/openvslam
 
     # [2] Build Makefile
     mkdir -p openvslam/build
