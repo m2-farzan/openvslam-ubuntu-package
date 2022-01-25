@@ -182,7 +182,7 @@ then
     pushd build
 
     # [2] Get the source
-    git clone https://github.com/stevenlovegrove/Pangolin.git
+    git clone --branch v0.6 https://github.com/stevenlovegrove/Pangolin.git
 
     # [3] Build Makefile
     mkdir -p Pangolin/build
@@ -231,7 +231,7 @@ then
 
     # [3] Compile the source using the Makefile [3]
     # -j: the number of your processors
-    make -j8
+    CPLUS_INCLUDE_PATH=/opt/openvslam-community/include make -j8
     make install
 fi
 
