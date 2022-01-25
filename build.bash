@@ -15,7 +15,7 @@ sudo apt-get install -y build-essential git pkg-config cmake make \
 
 
 mkdir ws
-cd ws
+pushd ws
 
 # ---------------------------
 ## 1. Install OpenCV
@@ -242,3 +242,5 @@ then
     popd
     popd
 fi
+
+popd
