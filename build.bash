@@ -218,11 +218,13 @@ then
 
     # [1] Get the source
     git clone --branch 0.2.4 https://github.com/OpenVSLAM-Community/openvslam
-    git -C openvslam apply ../openvslam.patch
+    pushd openvslam
+    pwd
+    git apply ../../openvslam.patch
 
     # [2] Build Makefile
-    mkdir -p openvslam/build
-    pushd openvslam/build
+    mkdir -p build
+    cd build
     cmake \
         -D CMAKE_INSTALL_PREFIX=/opt/openvslam-community \
         -D USE_PANGOLIN_VIEWER=ON \
