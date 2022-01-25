@@ -1,0 +1,29 @@
+name: Workflow
+
+on:
+  push:
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: |
+          cd ${{ github.workspace }}
+          ./build.bash
+      - name: Test
+        run: |
+          cd ${{ github.workspace }}
+          ./test.bash
+      - name: Pack
+        run: |
+          cd ${{ github.workspace }}
+          ./pack.bash
+      - name: Upload Deb File
+        uses: actions/upload-artifact@v2
+        with:
+          name: openvslam-community.deb
+          path: ${{ github.workspace }}/../openvslam-ubuntu-package.deb
