@@ -26,4 +26,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: openvslam-community.deb
-          path: ${{ github.workspace }}/../openvslam-ubuntu-package.deb
+          path: ${{ github.workspace }}.deb
