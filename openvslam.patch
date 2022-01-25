@@ -1,0 +1,11 @@
+diff --git a/test/openvslam/data/bow_vocabulary.cc b/test/openvslam/data/bow_vocabulary.cc
+index 92c1489..87ca336 100644
+--- a/test/openvslam/data/bow_vocabulary.cc
++++ b/test/openvslam/data/bow_vocabulary.cc
+@@ -1,5 +1,6 @@
+ #include "openvslam/feature/orb_extractor.h"
+ #include "openvslam/data/bow_vocabulary.h"
++#include "openvslam/util/converter.h"
+ 
+ #include <opencv2/core.hpp>
+ #include <opencv2/features2d.hpp>

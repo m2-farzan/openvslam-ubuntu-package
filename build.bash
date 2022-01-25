@@ -218,6 +218,7 @@ then
 
     # [1] Get the source
     git clone --branch 0.2.4 https://github.com/OpenVSLAM-Community/openvslam
+    git -C openvslam apply openvslam.patch
 
     # [2] Build Makefile
     mkdir -p openvslam/build
