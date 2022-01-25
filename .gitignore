@@ -1,1 +1,3 @@
 ws
+DEBIAN/openvslam-community
+*.deb
