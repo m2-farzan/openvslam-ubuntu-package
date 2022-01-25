@@ -243,7 +243,8 @@ then
     fi
     make install
     popd
-    popd
 fi
 
 popd
+
+exit 0
