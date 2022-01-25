@@ -213,6 +213,9 @@ fi
 cd openvslam/build
 if [ $? -ne 0 ]  # 0 = found the library, 1 = error
 then
+    sudo apt install nlohmann-json3-dev
+    sudo curl https://raw.githubusercontent.com/badaix/popl/master/include/popl.hpp -o /usr/include/popl.hpp
+
     # [1] Get the source
     git clone --branch 0.2.4 https://github.com/OpenVSLAM-Community/openvslam
 
@@ -221,12 +224,12 @@ then
     cd openvslam/build
     cmake \
         -D CMAKE_INSTALL_PREFIX=/opt/openvslam-community \
-        -D CMAKE_INCLUDE_PATH=/opt/openvslam-community/include \
         -D USE_PANGOLIN_VIEWER=ON \
         -D USE_SOCKET_PUBLISHER=OFF \
         -D USE_STACK_TRACE_LOGGER=ON \
         -D BOW_FRAMEWORK=DBoW2 \
         -D BUILD_TESTS=ON \
+        -D BUILD_EXAMPLES=ON \
         ..
 
     # [3] Compile the source using the Makefile [3]
