@@ -210,7 +210,7 @@ fi
 ## 5. Install OpenVSLAM
 # ---------------------------
 
-cd openvslam/build
+pushd openvslam/build
 if [ $? -ne 0 ]  # 0 = found the library, 1 = error
 then
     sudo apt install nlohmann-json3-dev
@@ -221,7 +221,7 @@ then
 
     # [2] Build Makefile
     mkdir -p openvslam/build
-    cd openvslam/build
+    pushd openvslam/build
     cmake \
         -D CMAKE_INSTALL_PREFIX=/opt/openvslam-community \
         -D USE_PANGOLIN_VIEWER=ON \
@@ -235,7 +235,10 @@ then
     # [3] Compile the source using the Makefile [3]
     # -j: the number of your processors
     CPLUS_INCLUDE_PATH=/opt/openvslam-community/include make -j8
+    if [ $? -ne 0 ]; then
+        exit 1
+    fi
     make install
+    popd
+    popd
 fi
-
-ls
