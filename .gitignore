@@ -1,3 +1,4 @@
 ws
-DEBIAN/openvslam-community
+usr
+opt
 *.deb

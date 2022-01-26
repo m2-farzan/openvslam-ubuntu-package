@@ -1,11 +1,10 @@
 #!/bin/bash
 set -e
-mkdir -p DEBIAN/openvslam-community/opt \
-    DEBIAN/openvslam-community/usr/lib/cmake \
-    DEBIAN/openvslam-community/usr/bin
-cp -r /opt/openvslam-community/lib/cmake/openvslam DEBIAN/openvslam-community/usr/lib/cmake/
-cp -r /opt/openvslam-community DEBIAN/openvslam-community/opt/
+mkdir -p opt usr/lib/cmake usr/bin
+cp -r /opt/openvslam-community/lib/cmake/openvslam usr/lib/cmake/
+cp -r /opt/openvslam-community opt/
 pushd ws/openvslam/build
-ls run_* | xargs -I% cp % ../../../DEBIAN/openvslam-community/usr/bin/openvslam-%
+ls run_* | xargs -I% cp % ../../../usr/bin/openvslam-%
 popd
+rm -rf ws
 dpkg-deb --build $(pwd)
