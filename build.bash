@@ -188,6 +188,8 @@ then
     cd build
     cmake \
         -D CMAKE_INSTALL_PREFIX=/opt/openvslam-community \
+        -D CMAKE_INSTALL_RPATH=/opt/openvslam-community/lib \
+        -D CMAKE_BUILD_WITH_INSTALL_RPATH=ON \
         -D USE_PANGOLIN_VIEWER=ON \
         -D USE_SOCKET_PUBLISHER=OFF \
         -D USE_STACK_TRACE_LOGGER=ON \
