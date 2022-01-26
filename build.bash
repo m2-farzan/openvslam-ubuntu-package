@@ -181,6 +181,7 @@ then
     git clone --branch 0.2.4 https://github.com/OpenVSLAM-Community/openvslam
     pushd openvslam
     pwd
+    git submodule update -i --recursive
     git apply ../../openvslam.patch
 
     # [2] Build Makefile
