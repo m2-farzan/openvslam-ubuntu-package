@@ -14,17 +14,11 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           ./build.bash
-      - name: Test
-        run: |
-          cd ${{ github.workspace }}
-          ./test.bash
       - name: Pack
-        if: ${{ steps.Build.outcome == 'success' }}
         run: |
           cd ${{ github.workspace }}
           ./pack.bash
       - name: Upload Deb File
-        if: ${{ steps.Pack.outcome == 'success' }}
         uses: actions/upload-artifact@v2
         with:
           name: openvslam-community.deb
