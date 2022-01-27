@@ -106,7 +106,7 @@ then
         -D CMAKE_CXX_FLAGS=-std=c++11 \
         -D BUILD_SHARED_LIBS=ON \
         -D BUILD_UNITTESTS=OFF \
-        -D BUILD_WITH_MARCH_NATIVE=ON \
+        -D BUILD_WITH_MARCH_NATIVE=OFF \
         -D G2O_USE_CHOLMOD=OFF \
         -D G2O_USE_CSPARSE=ON \
         -D G2O_USE_OPENGL=OFF \
