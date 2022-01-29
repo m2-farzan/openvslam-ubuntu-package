@@ -128,45 +128,6 @@ fi
 
 
 # ---------------------------
-## 3. Install DBoW2 (Modified)
-# ---------------------------
-
-# Find the library
-ls /opt/openvslam-community/lib/libdbow2.so > /dev/null
-if [ $? -ne 0 ]  # 0 = found the library, 1 = error
-then
-    # [0] Requirements
-
-    # [1] Make a directory
-    mkdir build
-    pushd build
-
-    # [2] Get the source
-    git clone https://github.com/shinsumicco/DBoW2
-
-    # [3] Build Makefile
-    mkdir -p DBoW2/build
-    pushd DBoW2/build
-    cmake \
-        -D CMAKE_BUILD_TYPE=Release \
-        -D CMAKE_INSTALL_PREFIX=/opt/openvslam-community \
-        ..
-
-    # [4] Compile the source using the Makefile [3]
-    # -j: the number of your processors
-    make -j8
-
-    # [5] Install the libraries compiled in [4]
-    make install
-
-    # [6] Clean the project
-    popd  # the source directory [2]
-    popd  # the main directory [1]
-    rm -rf build
-fi
-
-
-# ---------------------------
 ## 4. Install Pangolin
 # ---------------------------
 
@@ -233,7 +194,6 @@ then
         -D USE_PANGOLIN_VIEWER=ON \
         -D USE_SOCKET_PUBLISHER=OFF \
         -D USE_STACK_TRACE_LOGGER=ON \
-        -D BOW_FRAMEWORK=DBoW2 \
         -D BUILD_TESTS=ON \
         -D BUILD_EXAMPLES=ON \
         ..

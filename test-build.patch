@@ -59,7 +59,7 @@ index b355c67..394c897 100644
                            test_helper
                            gtest_main
 +                          yaml-cpp
-+                          dbow2
++                          fbow
                            opencv_imgcodecs
 +                          opencv_features2d
                            opencv_highgui)

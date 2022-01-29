@@ -10,6 +10,6 @@ git apply ../../test-build.patch
 cd test
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=/opt/openvslam-community -DBOW_FRAMEWORK=DBoW2 ..
+cmake -DCMAKE_INSTALL_PREFIX=/opt/openvslam-community ..
 make
 ls test_* | xargs -I% bash -c ./%
