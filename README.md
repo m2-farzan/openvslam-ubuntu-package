@@ -15,6 +15,25 @@ The package currently supports Ubuntu 20.04 (x86_64). We'd really appreciate a c
 
 2. Install it using `sudo apt install ./openvslam-ubuntu-package.deb` (Note the leading `./`)
 
+## Usage
+
+The example binaries are prepended with `openvslam-`. So the tutorial command to run a video SLAM becomes:
+
+```
+openvslam-run_video_slam -v orb_vocab.fbow -m ./aist_living_lab_1/video.mp4 -c example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db map.msg
+```
+
+To build and link code that depends on OpenVSLAM, make sure you use cmake argument `-D CMAKE_PREFIX_PATH=/opt/openvslam-community`. For example, to build openvslam_ros:
+
+```
+git clone --branch ros2 --depth 1 https://github.com/OpenVSLAM-Community/openvslam_ros.git
+colcon build --symlink-install --cmake-args -DCMAKE_PREFIX_PATH=/opt/openvslam-community
+```
+
+## Other Notes
+
+OpenVSLAM is built with FBoW variant and Pangolin Viewer on.
+
 ## Contribution
 
 Contribution is welcome. See issues on GitHub for some good first-timer suggestions.
