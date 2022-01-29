@@ -36,7 +36,8 @@ jobs:
       - name: Install
         run: |
           cd ~
-          sudo dpkg -i ./openvslam-ubuntu-package.deb
+          ls
+          sudo dpkg -i /home/runner/work/openvslam-ubuntu-package/openvslam-ubuntu-package/*.deb
           sudo apt install -f -y
       - name: Checkout
         uses: actions/checkout@v2
