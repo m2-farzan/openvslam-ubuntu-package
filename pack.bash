@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
-mkdir -p opt usr/lib/cmake usr/bin
-cp -r /opt/openvslam-community/lib/cmake/openvslam usr/lib/cmake/
+mkdir -p opt
 cp -r /opt/openvslam-community opt/
 cp ws/openvslam/build/lib/*.so opt/openvslam-community/lib/
 pushd ws/openvslam/build
