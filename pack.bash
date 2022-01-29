@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-mkdir -p opt
+mkdir -p opt usr/bin
 cp -r /opt/openvslam-community opt/
 cp ws/openvslam/build/lib/*.so opt/openvslam-community/lib/
 pushd ws/openvslam/build
