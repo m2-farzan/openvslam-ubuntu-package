@@ -8,5 +8,5 @@ ls run_* | xargs -I% cp % ../../../usr/bin/openvslam-%
 popd
 shopt -s extglob
 shopt -s dotglob
-rm -rfv ../openvslam-ubuntu-package/!(opt|usr)  # redundant relative patch is used for safety
+rm -rfv ../openvslam-ubuntu-package/!(opt|usr|DEBIAN)  # redundant relative patch is used for safety
 dpkg-deb --build $(pwd)
