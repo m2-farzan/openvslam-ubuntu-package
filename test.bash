@@ -11,4 +11,5 @@ cd test
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=/opt/openvslam-community -DBOW_FRAMEWORK=DBoW2 ..
+make
 ls test_* | xargs -I% bash -c ./%
