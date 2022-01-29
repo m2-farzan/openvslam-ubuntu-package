@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  docker:
+  Build:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -23,3 +23,23 @@ jobs:
         with:
           name: openvslam-community.deb
           path: ${{ github.workspace }}.deb
+  Test:
+    needs: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Download Deb File
+        uses: actions/download-artifact@v2
+        with:
+          name: openvslam-community.deb
+          path: /openvslam-community.deb
+      - name: Install
+        run: |
+          cd /
+          apt install -y ./openvslam-community.deb
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test
+        run: |
+          cd ${{ github.workspace }}
+          ./test.bash
