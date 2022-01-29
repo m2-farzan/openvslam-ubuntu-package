@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+sudo apt-get install -y nlohmann-json3-dev
 mkdir ws
 cd ws
 git clone --branch 0.2.4 https://github.com/OpenVSLAM-Community/openvslam
