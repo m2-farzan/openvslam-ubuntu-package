@@ -1,6 +1,7 @@
 # OpenVSLAM-Community Ubuntu Package
 
 ![Test](https://github.com/m2-farzan/openvslam-ubuntu-package/actions/workflows/main.yml/badge.svg?branch=main)
+[![Status](https://img.shields.io/static/v1?label=Status&message=WIP&color=1793D1)](https://aur.archlinux.org/packages/ros2-galactic/)
 
 This project builds OpenVSLAM-Community using GitHub Actions so that users can download and install it as a .deb package.
 The package currently supports Ubuntu 20.04 (x86_64). We'd really appreciate a contribution that adds ARM support.
