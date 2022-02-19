@@ -178,7 +178,7 @@ then
     sudo curl https://raw.githubusercontent.com/badaix/popl/master/include/popl.hpp -o /usr/include/popl.hpp
 
     # [1] Get the source
-    git clone --branch 0.2.4 https://github.com/OpenVSLAM-Community/openvslam
+    git clone https://github.com/OpenVSLAM-Community/openvslam
     pushd openvslam
     pwd
     git submodule update -i --recursive
