@@ -174,7 +174,7 @@ fi
 pushd openvslam/build
 if [ $? -ne 0 ]  # 0 = found the library, 1 = error
 then
-    sudo apt install nlohmann-json3-dev
+    sudo apt install nlohmann-json3-dev libbackward-cpp-dev
     sudo curl https://raw.githubusercontent.com/badaix/popl/master/include/popl.hpp -o /usr/include/popl.hpp
 
     # [1] Get the source
