@@ -28,7 +28,7 @@ To build and link code that depends on OpenVSLAM, make sure you use cmake argume
 
 ```
 git clone --branch ros2 --depth 1 https://github.com/OpenVSLAM-Community/openvslam_ros.git
-colcon build --symlink-install --cmake-args -DCMAKE_PREFIX_PATH=/opt/openvslam-community
+colcon build --cmake-args -DCMAKE_PREFIX_PATH=/opt/openvslam-community -DUSE_PANGOLIN_VIEWER=ON
 ```
 
 ## Other Notes
