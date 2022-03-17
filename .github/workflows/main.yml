@@ -35,6 +35,7 @@ jobs:
           path: ~
       - name: Install
         run: |
+          sudo apt-get update
           sudo apt install /home/runner/work/openvslam-ubuntu-package/openvslam-ubuntu-package/openvslam-ubuntu-package.deb
       - name: Checkout
         uses: actions/checkout@v2
