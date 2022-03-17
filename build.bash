@@ -110,7 +110,7 @@ then
         -D G2O_USE_CHOLMOD=OFF \
         -D G2O_USE_CSPARSE=ON \
         -D G2O_USE_OPENGL=OFF \
-        -D G2O_USE_OPENMP=ON \
+        -D G2O_USE_OPENMP=OFF \
         ..
 
     # [4] Compile the source using the Makefile [3]
