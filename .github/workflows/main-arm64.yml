@@ -22,6 +22,7 @@ jobs:
           shell: /bin/bash
           run: |
             cd /ws
+            sed -i s/sudo//g *.bash
             ./build.bash
             ./pack.bash
             mv /ws.deb /ws/openvslam-community-arm64.deb
