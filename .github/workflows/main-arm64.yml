@@ -1,0 +1,59 @@
+name: Workflow
+
+on:
+  push:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: uraimo/run-on-arch-action@v2
+        name: Build
+        id: Build
+        with:
+          arch: aarch64
+          distro: ubuntu20.04
+          githubToken: ${{ github.token }}
+          dockerRunArgs: |
+            --volume "${{ github.workspace }}:/ws"
+          shell: /bin/bash
+          run: |
+            cd /ws/${{ github.workspace }}
+            ./build.bash
+            ./pack.bash
+            mv /ws.deb /ws/openvslam-community-arm64.deb
+      - name: Upload Deb File
+        uses: actions/upload-artifact@v2
+        with:
+          name: openvslam-community-arm64.deb
+          path: ${{ github.workspace }}/openvslam-community-arm64.deb
+  Test:
+    needs: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Download Deb File
+        uses: actions/download-artifact@v2
+        with:
+          name: openvslam-community-arm64.deb
+          path: ~
+      - uses: uraimo/run-on-arch-action@v2
+        name: Install
+        id: Install
+        with:
+          arch: aarch64
+          distro: ubuntu20.04
+          githubToken: ${{ github.token }}
+          dockerRunArgs: |
+            --volume "/home/runner/work/openvslam-ubuntu-package/openvslam-community-arm64:/ws"
+          shell: /bin/bash
+          run: |
+            cd /ws
+            sudo apt-get update
+            sudo apt install ./openvslam-community-arm64.deb
+            git clone https://github.dev/m2-farzan/openvslam-ubuntu-package
+            cd openvslam-ubuntu-package
+            ./test.bash
