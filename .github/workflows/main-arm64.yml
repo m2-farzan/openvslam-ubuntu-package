@@ -21,7 +21,7 @@ jobs:
             --volume "${{ github.workspace }}:/ws"
           shell: /bin/bash
           run: |
-            cd /ws/${{ github.workspace }}
+            cd /ws
             ./build.bash
             ./pack.bash
             mv /ws.deb /ws/openvslam-community-arm64.deb
