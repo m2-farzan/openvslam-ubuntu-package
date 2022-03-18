@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: uraimo/run-on-arch-action@v2
+      - uses: uraimo/run-on-arch-action
         name: Build
         id: Build
         with:
@@ -40,7 +40,7 @@ jobs:
         with:
           name: openvslam-community-arm64.deb
           path: ~
-      - uses: uraimo/run-on-arch-action@v2
+      - uses: uraimo/run-on-arch-action
         name: Install
         id: Install
         with:
