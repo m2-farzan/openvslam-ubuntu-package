@@ -59,8 +59,8 @@ jobs:
           shell: /bin/bash
           run: |
             cd /ws
-            sudo apt-get update
-            sudo apt install ./openvslam-community-arm64.deb
+            apt-get update
+            apt install ./openvslam-community-arm64.deb
             git clone https://github.dev/m2-farzan/openvslam-ubuntu-package
             cd openvslam-ubuntu-package
             sed -i s/sudo//g *.bash
